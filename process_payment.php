@@ -40,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         
      //cart Api   
-        $storeHash = 'g2cpdxoo';
-        $authToken = 'jsyvxepegf1me26lpqlp4wolkdryk0x';
+        $storeHash = '';
+        $authToken = '';
         
         // Fetch Cart Details
         $apiUrl = "https://api.bigcommerce.com/stores/{$storeHash}/v3/carts/{$cartId}";
@@ -190,7 +190,7 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS => 'grant_type=client_credentials&audience=https%3A%2F%2Fapi.payments.auspost.com.au',
   CURLOPT_HTTPHEADER => array(
-    'Authorization: Basic elpsSkZJZ2V4bEluSGRueHoxYWk4MVpHWVJqa3F1WlU6VURlaUp4MXdLZmp3dmdiU19xV3hkRHZTb0dZZ0RnU0MwZE43WDJwNjhKZEpfTDVVWUJvUEJtYWlqOG5JUU94Rw==',
+    'Authorization: Basic ',
     'Content-Type: application/x-www-form-urlencoded'
   ),
 ));
@@ -210,7 +210,7 @@ $accessToken = $data->access_token;
 // creating payment in securepay 
 
 $orderId = $dataaaaa['id'];
-$merchantCode = "6S20031";
+$merchantCode = "";
 $ip = "127.0.0.1"; 
 $idempotencyKey = uniqid(); 
 
@@ -224,7 +224,7 @@ curl_setopt_array($curl, array(
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{ "amount": '.$totalAmount.', 
-            "merchantCode": "6S20031", 
+            "merchantCode": "", 
             "token": '.$secureToken.', 
             "ip": "127.0.0.1", 
             "orderId":'.$orderId.'
@@ -250,9 +250,9 @@ $status = $data['status'];
 
 if ($status == 'paid') {
     
-    $storeHash = "g2cpdxoo"; 
+    $storeHash = ""; 
 
-    $authToken = "jsyvxepegf1me26lpqlp4wolkdryk0x"; 
+    $authToken = ""; 
     
     $customerId = $customer_id;
     $statusId = 8;
